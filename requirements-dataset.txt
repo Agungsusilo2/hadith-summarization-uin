@@ -1,0 +1,10 @@
+pandas
+requests
+beautifulsoup4
+tqdm
+tenacity
+torch
+transformers
+sentencepiece
+accelerate
+openpyxl

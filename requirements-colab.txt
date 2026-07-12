@@ -1,0 +1,11 @@
+pandas
+numpy
+torch
+transformers
+sentencepiece
+accelerate
+tqdm
+evaluate
+rouge-score
+bert-score
+openpyxl

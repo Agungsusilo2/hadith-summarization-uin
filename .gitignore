@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.idea/
+.gradio/
+models/*
+!models/.gitkeep
+
+# Backup files created by manual edit sessions (*.backup_TIMESTAMP) - never needed at runtime.
+*.backup_*
+
+# Pipeline output: keep the files app.py actually reads, ignore timestamped
+# backups/partials/caches so they don't bloat the HF Spaces upload.
+data/output/*
+!data/output/.gitkeep
+!data/output/hasil_ringkasan_hadis.csv
+!data/output/dataset_hadis_full.csv
+!data/output/error_analysis_samples.csv
+
+data/input/*
+!data/input/.gitkeep
+!data/input/dataset_hadis.csv
+
+data/cache/
+
