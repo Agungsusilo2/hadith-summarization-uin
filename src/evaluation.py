@@ -14,7 +14,9 @@ from .utils import compression_ratio, word_count
 def has_reference_summaries(df: pd.DataFrame) -> bool:
     """Return True only when reference summaries exist and are non-empty."""
     column = config.REFERENCE_SUMMARY_COLUMN
-    return column in df.columns and df[column].astype(str).str.strip().ne("").any()
+    if column not in df.columns:
+        return False
+    return df[column].fillna("").astype(str).str.strip().ne("").any()
 
 
 def repetition_rate(text: str) -> float:
@@ -65,7 +67,7 @@ def evaluate_with_references(df: pd.DataFrame) -> dict:
         logging.info("Ringkasan referensi tidak tersedia; evaluasi otomatis dilewati.")
         return {"mode": "descriptive", "statistics": descriptive_statistics(df)}
 
-    references = df[config.REFERENCE_SUMMARY_COLUMN].astype(str).tolist()
+    references = df[config.REFERENCE_SUMMARY_COLUMN].fillna("").astype(str).tolist()
     results: dict[str, object] = {"mode": "reference"}
 
     try:

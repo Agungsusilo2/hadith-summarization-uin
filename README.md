@@ -112,6 +112,19 @@ pip install -r requirements-local.txt
 
 ## Dataset
 
+### Cara Membuat Dataset dari Sunnah.com
+
+Dataset hadis (`data/output/dataset_hadis_full.csv` dan `dataset_hadis_minimal.csv`) dibuat lewat tool terpisah **`create_hadith_dataset.py`**, yang scraping Sahih al-Bukhari dari Sunnah.com lalu menerjemahkan `english_translation` ke Indonesia. Ini alat yang berbeda dari pipeline ringkasan (`run_pipeline.py`) dan dari `app.py` — `app.py` sendiri **tidak pernah** scraping, cuma baca CSV yang sudah jadi.
+
+```powershell
+pip install -r requirements-dataset.txt
+python create_hadith_dataset.py
+```
+
+Dokumentasi lengkap (arti kolom, cara membatasi jumlah hadis, full scrape vs smoke test, cara menyalakan/mematikan terjemahan, batasan lisensi Sunnah.com, dll) ada di **[`README_dataset.md`](README_dataset.md)**.
+
+### Format Input untuk Pipeline Ringkasan
+
 Letakkan dataset di:
 
 ```text
