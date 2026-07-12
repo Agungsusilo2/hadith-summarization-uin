@@ -123,6 +123,12 @@ python create_hadith_dataset.py
 
 Dokumentasi lengkap (arti kolom, cara membatasi jumlah hadis, full scrape vs smoke test, cara menyalakan/mematikan terjemahan, batasan lisensi Sunnah.com, dll) ada di **[`README_dataset.md`](README_dataset.md)**.
 
+Hasil scraping keluar di `data/output/dataset_hadis_minimal.csv` — file ini **belum otomatis** jadi input pipeline ringkasan. Salin/rename manual dulu (kecuali `COPY_MINIMAL_TO_INPUT = True` di `create_hadith_dataset.py`):
+
+```powershell
+Copy-Item data\output\dataset_hadis_minimal.csv data\input\dataset_hadis.csv
+```
+
 ### Format Input untuk Pipeline Ringkasan
 
 Letakkan dataset di:
